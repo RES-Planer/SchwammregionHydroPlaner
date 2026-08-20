@@ -1,2 +1,22 @@
 # SchwammregionHydroPlaner
-A Front-End for the fast creation of Landscape-Modeling for Water Retention
+
+Ein MVP-Scaffold für den Hydro-Planner mit React/MapLibre-Frontend, FastAPI-Backend und Docker-Compose-Setup.
+
+## Projektstruktur
+
+```text
+frontend/  React + Vite + MapLibre GL JS
+backend/   FastAPI-Scaffold für Geodaten- und Hydrologie-Endpunkte
+docker-compose.yml
+```
+
+## Lokaler Start
+
+```bash
+cp .env.example .env
+cd frontend
+npm install
+npm run dev
+```
+
+Das Frontend zeigt aktuell Schritt 1 des MVP: eine OpenStreetMap-Grundkarte mit vorbereiteter UI für die nächsten Ausbaustufen.
