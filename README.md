@@ -13,7 +13,8 @@ docker-compose.yml
 ## Lokaler Start
 
 ```bash
-cd /home/runner/work/SchwammregionHydroPlaner/SchwammregionHydroPlaner/frontend
+cp .env.example .env
+cd frontend
 npm install
 npm run dev
 ```

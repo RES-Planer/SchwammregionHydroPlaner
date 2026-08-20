@@ -6,7 +6,7 @@ router = APIRouter(prefix="/api", tags=["hydrology"])
 
 
 @router.post("/watershed")
-def derive_watershed(_payload: WatershedRequest) -> None:
+def derive_watershed(_payload: WatershedRequest):
     raise HTTPException(
         status_code=status.HTTP_501_NOT_IMPLEMENTED,
         detail="Watershed derivation will be added in the next MVP step.",
