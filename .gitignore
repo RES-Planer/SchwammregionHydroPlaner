@@ -4,4 +4,5 @@ frontend/dist/
 backend/.venv/
 backend/__pycache__/
 backend/app/**/__pycache__/
+backend/data/dgm_cache/
 *.pyc

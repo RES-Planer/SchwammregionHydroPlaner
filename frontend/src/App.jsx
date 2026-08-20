@@ -1,4 +1,5 @@
 import './App.css'
+import { useRef, useState } from 'react'
 import DrawToolbar from './components/DrawToolbar'
 import HydrographChart from './components/HydrographChart'
 import Map from './components/Map'
@@ -6,7 +7,18 @@ import ResultsPanel from './components/ResultsPanel'
 import useHydroSimulation from './hooks/useHydroSimulation'
 
 function App() {
-  const { status, message } = useHydroSimulation()
+  const {
+    status,
+    message,
+    isLoading,
+    error,
+    catchment,
+    flowPaths,
+    areaHa,
+    analyzeProjectArea,
+  } = useHydroSimulation()
+  const mapRef = useRef(null)
+  const [activeDrawMode, setActiveDrawMode] = useState(null)
 
   return (
     <div className="app-shell">
@@ -20,13 +32,28 @@ function App() {
           </p>
         </div>
 
-        <DrawToolbar />
-        <ResultsPanel status={status} message={message} />
+        <DrawToolbar
+          activeDrawMode={activeDrawMode}
+          mapRef={mapRef}
+          onDrawModeChange={setActiveDrawMode}
+        />
+        <ResultsPanel
+          areaHa={areaHa}
+          error={error}
+          isLoading={isLoading}
+          message={message}
+          status={status}
+        />
         <HydrographChart />
       </aside>
 
       <main className="map-panel">
-        <Map />
+        <Map
+          catchment={catchment}
+          flowPaths={flowPaths}
+          onProjectAreaDrawn={analyzeProjectArea}
+          ref={mapRef}
+        />
       </main>
     </div>
   )

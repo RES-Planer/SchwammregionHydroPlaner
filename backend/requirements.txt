@@ -5,3 +5,5 @@ pysheds==0.5
 geopandas==1.1.4
 rasterio==1.5.1
 shapely==2.1.2
+requests==2.32.3
+pyproj==3.7.0
